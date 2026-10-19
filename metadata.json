@@ -1,0 +1,6 @@
+{
+  "name": "DevFlow — CI/CD Automation Platform",
+  "description": "Production-grade CI/CD automation platform using SQLite, GitHub Actions, Docker builds, deterministic failure diagnostics, and Gemini AI remediation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

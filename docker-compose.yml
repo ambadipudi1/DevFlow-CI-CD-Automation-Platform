@@ -1,0 +1,23 @@
+services:
+  devflow:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: devflow-platform
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DATABASE_PATH=/data/devflow.db
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - GITHUB_TOKEN=${GITHUB_TOKEN:-}
+      - GITHUB_WEBHOOK_SECRET=${GITHUB_WEBHOOK_SECRET:-}
+    volumes:
+      # Named persistent volume to retain SQLite database across container restarts
+      - devflow_data:/data
+
+volumes:
+  devflow_data:
+    driver: local
